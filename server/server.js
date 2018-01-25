@@ -7,12 +7,14 @@ const express = require('express');
 const compression = require('compression');
 const morgan = require('morgan');
 const path = require('path');
+
 var mongoose = require ("mongoose");
+var router = require('./routes/routes.js')
 
 //  type: heroku config:get MONGODB_URI
 //  You can add mLab to your app either through the add-on catalog or through the heroku command.
 //  https://devcenter.heroku.com/articles/mongolab
-var uristring = 'mongodb://heroku_6dn4h73b:co8pe58sjmurt19g8t7ddd7vef@ds111618.mlab.com:11618/heroku_6dn4h73b'
+var uristring = 'mongodb://heroku_6dn4h73b:co8pe58sjmurt19g8t7ddd7vef@ds111618.mlab.com:11618/heroku_6dn4h73b';
 
 const normalizePort = port => parseInt(port, 10);
 const PORT = normalizePort(process.env.PORT || 5000);
