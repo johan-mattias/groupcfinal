@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import './scss/app.css'
+import { StatusBar } from './components/StatusBar'
 
 import { Home } from './components/Home';
 
@@ -7,8 +8,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <p>This is our init page, main entry point.</p>
         <Home/>
+        <StatusBar/>
       </div>
     );
   }

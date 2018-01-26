@@ -9,7 +9,7 @@ const morgan = require('morgan');
 const path = require('path');
 
 var mongoose = require ("mongoose");
-var router = require('./routes/routes.js')
+var router = require('./routes/routes');
 
 //  type: heroku config:get MONGODB_URI
 //  You can add mLab to your app either through the add-on catalog or through the heroku command.

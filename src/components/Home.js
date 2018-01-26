@@ -15,7 +15,7 @@ export class Home extends Component {
 
     render() {
         return(
-            <div className="test"></div>
+            <div></div>
         );
     }
 }
