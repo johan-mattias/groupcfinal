@@ -15,7 +15,9 @@ export class Home extends Component {
 
     render() {
         return(
-            <div></div>
+            <div>
+                <input className="search-bar" type="search"/>
+            </div>
         );
     }
 }

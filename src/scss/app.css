@@ -1,3 +1,10 @@
+.search-bar {
+  width: 80%;
+  text-align: center; }
+
+.search-bar:focus {
+  border: red 2px solid; }
+
 .status-flex {
   display: flex;
   position: fixed;
@@ -8,10 +15,19 @@
   border: red solid 2px; }
 
 .sum-status {
+  display: -webkit-flex;
+  /* Safari */
   flex: 1;
   border: solid gold 1px; }
 
 .pay-btn {
+  -webkit-flex: 1;
+  /* Safari 6.1+ */
+  -ms-flex: 1;
+  /* IE 10 */
   flex: 1;
   border: solid green 1px;
-  background: yellow; }
+  background: #73ff19; }
+
+html {
+  background: #0e88ff; }
