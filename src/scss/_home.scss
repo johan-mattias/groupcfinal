@@ -1,9 +1,11 @@
 .search-bar {
   //margin: 5px auto auto auto;
   //margin-left: 50px;
-  width: 80%;
+  display: block;
+  width: 70%;
   text-align: center;
-
+  margin: auto;
+  margin-top: 15px;
 }
 
 .search-bar:focus {

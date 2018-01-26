@@ -1,6 +1,9 @@
 .search-bar {
-  width: 80%;
-  text-align: center; }
+  display: block;
+  width: 70%;
+  text-align: center;
+  margin: auto;
+  margin-top: 15px; }
 
 .search-bar:focus {
   border: red 2px solid; }

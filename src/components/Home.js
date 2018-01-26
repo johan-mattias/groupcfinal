@@ -34,17 +34,17 @@ export class Home extends Component {
         );
         return(
             <div>
+                <input className="search-bar" type="text"
+                       value={this.state.searchField}
+                       onChange={this.updateField.bind(this)}
+                />
                 <ul>
                     {
                         dummyListFiltered.map((elem) => {
-                            return <li>{elem.name}</li>
+                            return <li style={{'text-align': 'center', 'list-style': 'none'}}>{elem.name}</li>
                         })
                     }
                 </ul>
-                <input className="search-bar" type="text"
-                value={this.state.searchField}
-                onChange={this.updateField.bind(this)}
-                />
             </div>
         );
     }
