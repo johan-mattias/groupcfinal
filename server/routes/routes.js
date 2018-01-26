@@ -38,11 +38,12 @@ router.post('/insert', function(req, res) {
     });
 });
 
-router.post('/update', function (req, res) {
+router.post('/update-price', function (req, res) {
     Item.find({
         description: req.body.Description
     }, function (err, res) {
         res.description = req.body.Description;
+        res.price = req.body.Price;
     });
 });
 
