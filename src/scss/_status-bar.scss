@@ -12,6 +12,9 @@
   display: -webkit-flex; /* Safari */
   flex: 1;
   border: solid gold 1px;
+  width: 100%;
+  text-align: center;
+  font-size: $font-size-bar;
 }
 
 .pay-btn {
@@ -20,7 +23,7 @@
   flex: 1;
   border: solid green 1px;
   background: #73ff19;
-  font-size: 35px;
+  font-size: $font-size-bar;
   font-weight: bold;
 }
 
