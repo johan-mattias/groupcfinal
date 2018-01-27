@@ -5,6 +5,7 @@
  *
  */
 import React, { Component } from 'react';
+import NumericInput from 'react-numeric-input';
 
 export class Home extends Component {
 
@@ -41,7 +42,10 @@ export class Home extends Component {
                 <ul>
                     {
                         dummyListFiltered.map((elem) => {
-                            return <li style={{'text-align': 'center', 'list-style': 'none'}}>{elem.name}</li>
+                            return <div>
+                                <li style={{'text-align': 'center', 'list-style': 'none'}}>{elem.name}</li>
+                                <NumericInput value={0}/>
+                                </div>
                         })
                     }
                 </ul>
