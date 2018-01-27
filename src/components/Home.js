@@ -43,8 +43,8 @@ export class Home extends Component {
                     {
                         dummyListFiltered.map((elem) => {
                             return <div>
-                                <li style={{'text-align': 'center', 'list-style': 'none'}}>{elem.name}</li>
                                 <NumericInput min={0} mobile/>
+                                <li style={{'text-align': 'center', 'list-style': 'none'}}>{elem.name}</li>
                                 </div>
                         })
                     }

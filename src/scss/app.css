@@ -14,17 +14,19 @@
   bottom: 0;
   right: 0;
   left: 0;
-  height: 80px;
-  border: red solid 2px; }
+  height: 80px; }
 
 .sum-status {
   display: -webkit-flex;
   /* Safari */
   flex: 1;
-  border: solid gold 1px;
   width: 100%;
   text-align: center;
   font-size: 40px; }
+
+.sum-status::-webkit-outer-spin-button, .sum-status::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
 
 .pay-btn {
   -webkit-flex: 1;
@@ -32,7 +34,6 @@
   -ms-flex: 1;
   /* IE 10 */
   flex: 1;
-  border: solid green 1px;
   background: #73ff19;
   font-size: 40px;
   font-weight: bold; }

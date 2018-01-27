@@ -8,7 +8,7 @@ export class StatusBar extends Component {
     render() {
         return(
             <div className="status-flex">
-                <input className="sum-status" type="text"/>
+                <input className="sum-status" type="number"/>
                 <button className="pay-btn">Pay</button>
             </div>
         )
