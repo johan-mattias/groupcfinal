@@ -2,7 +2,6 @@
  * Created by danielghandahari on 2018-01-26.
  */
 import React, { Component } from 'react'
-import NumericInput from 'react-numeric-input'
 
 export class StatusBar extends Component {
 

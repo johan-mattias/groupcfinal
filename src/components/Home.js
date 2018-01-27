@@ -24,9 +24,9 @@ export class Home extends Component {
     }
 
     render() {
-        let dummyList = [{name: "Coca-cola"}, {name: "Haribo"}, {name: "Pepsi"}, {name: "Hockey Pulver"}, {name: "Kaffe"}
-            , {name: "Nocco"}, {name: "Powerking"}, {name: "Delicatobollar"}, {name: "Kebab"}, {name: "Baklava"}, {name: "Fanta"}
-            , {name: "Sprite"}, {name: "Surisar"}, {name: "Remmar"}, {name: "Pärlboll"}, {name: "IT-tröja"}, {name: "IT-kopp"}, {name: "Te"}];
+        let dummyList = [{name: "Coca-cola", price: 7}, {name: "Haribo", price: 11}, {name: "Pepsi", price: 7}, {name: "Hockey Pulver", price: 999}, {name: "Kaffe",  price: 0}
+            , {name: "Nocco", price: 33}, {name: "Powerking", price: 1337}, {name: "Delicatobollar", price: 10}, {name: "Kebab", price: 70}, {name: "Baklava", price: 50}, {name: "Fanta", price: 7}
+            , {name: "Sprite", price: 7}, {name: "Surisar", price: 2}, {name: "Remmar", price: 1}, {name: "Pärlboll", price: 10}, {name: "IT-tröja", price: 100}, {name: "IT-kopp"}, {name: "Te"}];
         let dummyListFiltered = dummyList.filter(
             (elem) => {
                 return elem.name.toLowerCase().indexOf(
@@ -44,7 +44,7 @@ export class Home extends Component {
                         dummyListFiltered.map((elem) => {
                             return <div>
                                 <li style={{'text-align': 'center', 'list-style': 'none'}}>{elem.name}</li>
-                                <NumericInput value={0}/>
+                                <NumericInput min={0} mobile/>
                                 </div>
                         })
                     }
