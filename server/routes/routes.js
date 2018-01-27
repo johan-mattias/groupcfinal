@@ -12,24 +12,24 @@ const expressValidator = require('express-validator');
 const mongoose = require('mongoose');
 var Item = require('../../models/Item');
 const app = express();
-var router = require('./routes/routes.js')
-const url = 'mongodb://heroku_6dn4h73b:co8pe58sjmurt19g8t7ddd7vef@ds111618.mlab.com:11618/heroku_6dn4h73b';
+var router = express.Router();
+const url = 'mongodb://armanv:OVtDy6R9ZgnYI3qZ5IUZB@ds117158.mlab.com:17158/scrubit';
 
 //=========================//
 
 
-router.get('/', function(req, res){
+router.get('/api', function(req, res){
     res.render('index')
 });
 
-router.get('/get-all', function(req, res) {
+router.get('/api/get-all', function(req, res) {
     Item.find({}).then(eachOne => {
         res.json(eachOne);
     })
 });
 
 // Description and Price will be inputs used by app
-router.post('/insert', function(req, res) {
+router.post('/api/insert', function(req, res) {
     Item.create({
         description: req.body.Description,
         price: req.body.Price,
@@ -38,7 +38,7 @@ router.post('/insert', function(req, res) {
     });
 });
 
-router.post('/update-price', function (req, res) {
+router.post('/api/update-price', function (req, res) {
     Item.find({
         description: req.body.Description
     }, function (err, res) {
@@ -48,7 +48,7 @@ router.post('/update-price', function (req, res) {
 });
 
 
-router.get('/delete', function(req, res){
+router.get('/api/delete', function(req, res){
     Item.find({
         description: req.body.Description
     }, function(err, docs){

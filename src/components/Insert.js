@@ -2,6 +2,8 @@
  * Created by danielghandahari on 2018-01-27.
  */
 import React, { Component } from 'react';
+import axios from 'axios';
+import querystring from 'querystring';
 
 export class Insert extends Component {
 
@@ -15,9 +17,7 @@ export class Insert extends Component {
                     "Content-Type": "application/x-www-form-urlencoded"
                 }
             }).then(function(response) {
-            e.setState({
-                messageFromServer: response.data
-            });
+            console.log(response.data);
         });
     }
 

@@ -6,6 +6,8 @@
  */
 import React, { Component } from 'react';
 import NumericInput from 'react-numeric-input';
+import {Insert} from './Insert';
+
 
 export class Home extends Component {
 
@@ -49,6 +51,8 @@ export class Home extends Component {
                         })
                     }
                 </ul>
+                <Insert/>
+
             </div>
         );
     }
