@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import NumericInput from 'react-numeric-input';
 import {Insert} from './Insert';
+import { StatusBar } from './StatusBar'
 
 
 export class Home extends Component {
@@ -15,7 +16,8 @@ export class Home extends Component {
         super(props);
 
         this.state = {
-            searchField: ''
+            searchField: '',
+            totalSum: 0
         }
     }
 
@@ -23,6 +25,12 @@ export class Home extends Component {
         this.setState({
             searchField: e.target.value.substr(0, 20)
         });
+    }
+
+    onChangeAmount = (e) => {
+        console.log("-----")
+        console.log(e.target.value)
+        console.log("-----")
     }
 
     render() {
@@ -45,14 +53,18 @@ export class Home extends Component {
                     {
                         dummyListFiltered.map((elem) => {
                             return <div>
-                                <NumericInput min={0} mobile/>
+                                <NumericInput min={0} onChange={(number) => {this.setState({
+                                    //TODO: replace 1 with correctness
+                                    totalSum: this.state.totalSum + 1
+                                })}} mobile/>
+
                                 <li style={{'text-align': 'center', 'list-style': 'none'}}>{elem.name + ": " + elem.price + "kr"}</li>
                                 </div>
                         })
                     }
                 </ul>
-                <Insert/>
-
+                {/*<Insert/>*/}
+                <StatusBar totalSum={this.state.totalSum}/>
             </div>
         );
     }

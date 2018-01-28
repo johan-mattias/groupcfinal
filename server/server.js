@@ -22,6 +22,8 @@ const PORT = normalizePort(process.env.PORT || 5000);
 const app = express();
 const dev = app.get('env') !== 'production';
 
+app.use('/', router);
+
 mongoose.connect(uristring, function (err, res) {
     if (err) {
         console.log ('ERROR connecting to: ' + uristring + '. ' + err);
@@ -37,7 +39,7 @@ if(!dev) {
 
     app.use(express.static(path.resolve(__dirname, '../build')));
 
-    app.use('/api', router);
+
 
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, '../build', 'index.html'));

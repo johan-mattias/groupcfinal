@@ -7,6 +7,12 @@ import querystring from 'querystring';
 
 export class Insert extends Component {
 
+    getNewItem = (e) => {
+        axios.get('/').then(function(response) {
+            console.log(response);
+        });
+    }
+
     insertNewItem = (e) => {
         axios.post('/api/insert',
             querystring.stringify({
@@ -23,7 +29,7 @@ export class Insert extends Component {
 
     render() {
         return(
-            <button onClick={this.insertNewItem}>DB TEST</button>
+            <button onClick={this.getNewItem}>DB TEST</button>
         );
     }
 }

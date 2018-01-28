@@ -18,18 +18,18 @@ const url = 'mongodb://armanv:OVtDy6R9ZgnYI3qZ5IUZB@ds117158.mlab.com:17158/scru
 //=========================//
 
 
-router.get('/api', function(req, res){
-    res.render('index')
+router.get('/', function(req, res){
+    res.send("hejsannnn");
 });
 
-router.get('/api/get-all', function(req, res) {
+router.get('/get-all', function(req, res) {
     Item.find({}).then(eachOne => {
         res.json(eachOne);
     })
 });
 
 // Description and Price will be inputs used by app
-router.post('/api/insert', function(req, res) {
+router.post('/insert', function(req, res) {
     Item.create({
         description: req.body.Description,
         price: req.body.Price,
@@ -38,7 +38,7 @@ router.post('/api/insert', function(req, res) {
     });
 });
 
-router.post('/api/update-price', function (req, res) {
+router.post('/update-price', function (req, res) {
     Item.find({
         description: req.body.Description
     }, function (err, res) {
@@ -48,7 +48,7 @@ router.post('/api/update-price', function (req, res) {
 });
 
 
-router.get('/api/delete', function(req, res){
+router.post('/delete', function(req, res){
     Item.find({
         description: req.body.Description
     }, function(err, docs){
