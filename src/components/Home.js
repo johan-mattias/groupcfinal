@@ -27,10 +27,18 @@ export class Home extends Component {
         });
     }
 
-    onChangeAmount = (e) => {
+    onChangeAmount = (number, value, price) => {
+        //TODO: implement logic!
         console.log("-----")
-        console.log(e.target.value)
+        console.log(number)
+        console.log(price)
+        console.log(value)
         console.log("-----")
+
+        this.setState({
+            totalSum: this.state.totalSum + price
+        });
+
     }
 
     render() {
@@ -53,10 +61,7 @@ export class Home extends Component {
                     {
                         dummyListFiltered.map((elem) => {
                             return <div>
-                                <NumericInput min={0} onChange={(number) => {this.setState({
-                                    //TODO: replace 1 with correctness
-                                    totalSum: this.state.totalSum + 1
-                                })}} mobile/>
+                                <NumericInput min={0} onChange={(number, value) => this.onChangeAmount(number, value, elem.price)} mobile/>
 
                                 <li style={{'text-align': 'center', 'list-style': 'none'}}>{elem.name + ": " + elem.price + "kr"}</li>
                                 </div>
