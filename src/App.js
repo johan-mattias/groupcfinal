@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './scss/app.css'
-import { StatusBar } from './components/StatusBar'
+import {Insert} from './components/Insert'
 
 import { Home } from './components/Home';
 
@@ -9,6 +9,7 @@ class App extends Component {
     return (
       <div>
         <Home/>
+        <Insert/>
       </div>
     );
   }
