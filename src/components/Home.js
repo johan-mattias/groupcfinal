@@ -37,31 +37,6 @@ export class Home extends Component {
         });
     }
 
-/*    onChangeAmount = (number, elem, itemQuant) => {
-        //TODO: implement logic!
-        console.log(elem)
-        console.log(itemQuant)
-
-        // itemQuant is indexed by id
-        const prevQuantity = itemQuant[elem.id]
-
-        if(number > prevQuantity) {
-
-            const amount = number - prevQuantity
-            console.log(amount)
-            const itemQuantities = this.state.itemQuantities
-            itemQuantities[elem.id] = number
-
-            const incrTotalSum = amount * elem.price
-
-            this.setState({
-                totalSum: this.state.totalSum + incrTotalSum,
-                itemQuantities: itemQuantities
-            });
-
-        }
-
-    }*/
 
     onMinus = (event, elem) => {
 
@@ -100,26 +75,31 @@ export class Home extends Component {
                 return elem.name.toLowerCase().indexOf(
                     this.state.searchField.toLowerCase()) !== -1;
             }
-
         );
+
         return(
             <div>
                 <input className="search-bar" type="text"
                        value={this.state.searchField}
                        onChange={this.updateField.bind(this)}
+                       placeholder={"e.g. Coca-cola, Haribo, Binary search tree, Pärlboll"}
                 />
                 <ul>
 
                     {
                         dummyListFiltered.map((elem) => {
-                            return <div>
-                                <div>
-                                    <button onClick={(event) => { this.onMinus(event, elem)}}>-</button>
-                                    <input type="number" value={this.state.itemQuant[elem.id]}/>
-                                    <button onClick={(event) => { this.onPlus(event, elem)}}>+</button>
-                                </div>
+                            return <div className="items-flex">
 
-                                <li style={{'text-align': 'center', 'list-style': 'none'}}>{elem.name + ": " + elem.price + "kr"}</li>
+                                    <div className="items-flex-item item-info-container">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SNice.svg/220px-SNice.svg.png" alt=""/>
+                                        <li className="item-info">{elem.name + ": " + elem.price + "kr"}</li>
+                                    </div>
+                                    <div className="items-flex-item quantity-holder">
+                                        <button onClick={(event) => { this.onMinus(event, elem)}}>-</button>
+                                        <input type="number" value={this.state.itemQuant[elem.id]}/>
+                                        <button onClick={(event) => { this.onPlus(event, elem)}}>+</button>
+                                    </div>
+
                                 </div>
                         })
                     }
