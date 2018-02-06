@@ -20,7 +20,7 @@ const url = 'mongodb://armanv:OVtDy6R9ZgnYI3qZ5IUZB@ds117158.mlab.com:17158/scru
 //=========================//
 
 
-router.get('/', function(req, res){
+router.get('/hej', function(req, res){
     res.send("hejsannnn");
 });
 
