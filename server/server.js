@@ -7,9 +7,11 @@ const express = require('express');
 const compression = require('compression');
 const morgan = require('morgan');
 const path = require('path');
+const Item = require('../models/Item');
 
 var mongoose = require ("mongoose");
-var router = require('./routes/routes');
+
+var router = require('./routes/routes.js');
 
 //  type: heroku config:get MONGODB_URI
 //  You can add mLab to your app either through the add-on catalog or through the heroku command.
@@ -29,8 +31,22 @@ mongoose.connect(uristring, function (err, res) {
         console.log ('ERROR connecting to: ' + uristring + '. ' + err);
     } else {
         console.log ('Succeeded connected to: ' + uristring);
+        Item.create({
+            description: 'cola',
+            price: 100,
+        });
+        Item.find({}, 'description', function(err, items){
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log(items);
+            }
+        })
     }
 });
+
+
 
 if(!dev) {
     app.disable('x-powered-by');

@@ -10,10 +10,12 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const expressValidator = require('express-validator');
 const mongoose = require('mongoose');
-var Item = require('../../models/Item');
+const Item = require('../../models/Item');
 const app = express();
-var router = express.Router();
+const router = express.Router();
+//const url = 'mongodb://heroku_6dn4h73b:co8pe58sjmurt19g8t7ddd7vef@ds111618.mlab.com:11618/heroku_6dn4h73b';
 const url = 'mongodb://armanv:OVtDy6R9ZgnYI3qZ5IUZB@ds117158.mlab.com:17158/scrubit';
+
 
 //=========================//
 
