@@ -13,13 +13,15 @@ const mongoose = require('mongoose');
 const Item = require('../../models/Item');
 const app = express();
 const router = express.Router();
-const url = 'mongodb://heroku_6dn4h73b:co8pe58sjmurt19g8t7ddd7vef@ds111618.mlab.com:11618/heroku_6dn4h73b';
+//const url = 'mongodb://heroku_6dn4h73b:co8pe58sjmurt19g8t7ddd7vef@ds111618.mlab.com:11618/heroku_6dn4h73b';
+const url = 'mongodb://armanv:OVtDy6R9ZgnYI3qZ5IUZB@ds117158.mlab.com:17158/scrubit';
+
 
 //=========================//
 
 
 router.get('/', function(req, res){
-    res.render('index')
+    res.send("hejsannnn");
 });
 
 router.get('/get-all', function(req, res) {
@@ -48,7 +50,7 @@ router.post('/update-price', function (req, res) {
 });
 
 
-router.get('/delete', function(req, res){
+router.post('/delete', function(req, res){
     Item.find({
         description: req.body.Description
     }, function(err, docs){
