@@ -14,7 +14,7 @@
   outline: 0;
 }
 
-// make placeholder disappear on focus
+// make placeholder disappear on focus in search-bar
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
 input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
@@ -41,7 +41,6 @@ li.item-info {
 }
 
 .items-flex {
- // border: solid red 2px;
   padding-top: 30px;
   display: -webkit-flex;
   display: flex;
@@ -53,7 +52,6 @@ li.item-info {
   -webkit-flex: 1; /* Safari 6.1+ */
   -ms-flex: 1; /* IE 10 */
   flex: 1;
-  //border: solid orange 2px;
 }
 
 div.item-info-container {
@@ -61,13 +59,14 @@ div.item-info-container {
 }
 
 .quantity-holder {
-  //TODO: fix so that acc bar stretches (if neccessary)
-  //display: block;
-  text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  input[type=number]{
+  div {
     background: rgba(255, 255, 255, 0.3);
-    border: solid darkblue 1px;
+    border: solid $main-text-color 1px;
     border-radius: 50px;
     width: 40px;
     height: 40px;
@@ -79,7 +78,7 @@ div.item-info-container {
 
   button {
     cursor: pointer;
-    border: solid darkblue 0.5px;
+    border: solid $main-text-color 0.5px;
     border-radius: 50px;
     width: 45px;
     height: 45px;
@@ -93,11 +92,3 @@ div.item-info-container {
 
 }
 
-// removing up and down arrow from input with number type
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: 0;
-}

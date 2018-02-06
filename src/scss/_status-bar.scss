@@ -1,4 +1,5 @@
 .status-flex {
+  display: -webkit-flex; /* Safari */
   display: flex;
   position: fixed;
   bottom: 0;
@@ -8,10 +9,12 @@
 }
 
 .sum-status {
-  display: -webkit-flex; /* Safari */
+  background: white;
+  color: $main-text-color;
   flex: 1;
-  width: 100%;
   text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
   font-size: $font-size-bar;
 }
 

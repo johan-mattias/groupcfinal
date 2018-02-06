@@ -64,10 +64,13 @@ div.item-info-container {
   text-align: center; }
 
 .quantity-holder {
-  text-align: center; }
-  .quantity-holder input[type=number] {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .quantity-holder div {
     background: rgba(255, 255, 255, 0.3);
-    border: solid darkblue 1px;
+    border: solid #ffc4d5 1px;
     border-radius: 50px;
     width: 40px;
     height: 40px;
@@ -77,7 +80,7 @@ div.item-info-container {
     font-size: 15px; }
   .quantity-holder button {
     cursor: pointer;
-    border: solid darkblue 0.5px;
+    border: solid #ffc4d5 0.5px;
     border-radius: 50px;
     width: 45px;
     height: 45px;
@@ -86,14 +89,9 @@ div.item-info-container {
   .quantity-holder button:focus {
     outline: 0; }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: 0; }
-
 .status-flex {
+  display: -webkit-flex;
+  /* Safari */
   display: flex;
   position: fixed;
   bottom: 0;
@@ -102,11 +100,12 @@ input[type=number]::-webkit-outer-spin-button {
   height: 80px; }
 
 .sum-status {
-  display: -webkit-flex;
-  /* Safari */
+  background: white;
+  color: #ffc4d5;
   flex: 1;
-  width: 100%;
   text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
   font-size: 40px; }
 
 .sum-status::-webkit-outer-spin-button, .sum-status::-webkit-inner-spin-button {
@@ -124,4 +123,8 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: bold; }
 
 html {
-  background: #277ce6; }
+  background: #277ce6;
+  height: 100%; }
+
+body {
+  margin: 0; }
