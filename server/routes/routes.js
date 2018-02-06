@@ -33,8 +33,13 @@ router.get('/get-all', function(req, res) {
 // Description and Price will be inputs used by app
 router.post('/insert', function(req, res) {
     Item.create({
+        id: req.body.Id,
+        qr: req.body.Qr,
+        name: req.body.Name,
         description: req.body.Description,
         price: req.body.Price,
+        quantity: req.body.Quantity,
+        url: req.body.Url
     }).then(item => {
         res.json(item)
     });
@@ -42,17 +47,22 @@ router.post('/insert', function(req, res) {
 
 router.post('/update-price', function (req, res) {
     Item.find({
-        description: req.body.Description
+        description: req.body.Name
     }, function (err, res) {
+        res.id = req.body.Id;
+        res.qr = req.body.Qr;
+        res.name = req.body.Name;
         res.description = req.body.Description;
         res.price = req.body.Price;
+        res.quantity = req.body.Quantity;
+        res.url = req.body.Url;
     });
 });
 
 
 router.post('/delete', function(req, res){
     Item.find({
-        description: req.body.Description
+        description: req.body.Name
     }, function(err, docs){
         docs.remove();
     });
