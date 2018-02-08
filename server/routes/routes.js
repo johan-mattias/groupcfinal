@@ -6,13 +6,10 @@
 //====LIST DEPENDENCIES===//
 const express = require('express');
 const parseurl = require('parseurl');
-const bodyParser = require('body-parser');
-const path = require('path');
-const expressValidator = require('express-validator');
-const mongoose = require('mongoose');
 const Item = require('../../models/Item');
-const app = express();
 const router = express.Router();
+const mongoose = require('mongoose');
+
 //const url = 'mongodb://heroku_6dn4h73b:co8pe58sjmurt19g8t7ddd7vef@ds111618.mlab.com:11618/heroku_6dn4h73b';
 const url = 'mongodb://armanv:OVtDy6R9ZgnYI3qZ5IUZB@ds117158.mlab.com:17158/scrubit';
 
@@ -20,32 +17,88 @@ const url = 'mongodb://armanv:OVtDy6R9ZgnYI3qZ5IUZB@ds117158.mlab.com:17158/scru
 //=========================//
 
 
-router.get('/hej', function(req, res){
-    res.send("hejsannnn");
+router.get('/api', function(req, res){
+    // res.send("hejsannnn");
+
+
 });
 
-router.get('/get-all', function(req, res) {
-    Item.find({}).then(eachOne => {
+router.get('/api/get-all', function(req, res) {
+/*    Item.find({}).then(eachOne => {
         res.json(eachOne);
-    })
+    })*/
+
+
+    Item.find()
+        .exec()
+        .then(docs => {
+            console.log(docs);
+            //   if (docs.length >= 0) {
+            res.status(200).json(docs);
+            //   } else {
+            //       res.status(404).json({
+            //           message: 'No entries found'
+            //       });
+            //   }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
 });
 
 // Description and Price will be inputs used by app
-router.post('/insert', function(req, res) {
-    Item.create({
-        id: req.body.Id,
-        qr: req.body.Qr,
-        name: req.body.Name,
-        description: req.body.Description,
-        price: req.body.Price,
-        quantity: req.body.Quantity,
-        url: req.body.Url
+router.post('/api/insert', function(req, res) {
+/*    Item.create({
+        id: req.body.id,
+        qr: req.body.qr,
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        quantity: req.body.quantity,
+        url: req.body.url
     }).then(item => {
         res.json(item)
+    });*/
+    console.log("################");
+    console.log(req.body.qr);
+    console.log(req.body.name);
+    console.log(req.body.description);
+    console.log(req.body.price);
+    console.log(req.body.quantity);
+    console.log(req.body.url);
+
+    console.log("################");
+
+    const item = new Item({
+        _id: new mongoose.Types.ObjectId(),
+        qr: req.body.qr,
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        quantity: req.body.quantity,
+        url: req.body.url
     });
+    item.save()
+        .then(result => {
+            console.log(result);
+            res.status(201).json({
+                message: "Handling POST requests to /products",
+                createdProduct: result
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+
 });
 
-router.post('/update-price', function (req, res) {
+router.post('/api/update-price', function (req, res) {
     Item.find({
         description: req.body.Name
     }, function (err, res) {
@@ -60,7 +113,7 @@ router.post('/update-price', function (req, res) {
 });
 
 
-router.post('/delete', function(req, res){
+router.post('/api/delete', function(req, res){
     Item.find({
         description: req.body.Name
     }, function(err, docs){

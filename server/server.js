@@ -7,7 +7,7 @@ const express = require('express');
 const compression = require('compression');
 const morgan = require('morgan');
 const path = require('path');
-const Item = require('../models/Item');
+const bodyParser = require('body-parser');
 
 var mongoose = require ("mongoose");
 
@@ -23,6 +23,12 @@ const PORT = normalizePort(process.env.PORT || 5000);
 
 const app = express();
 const dev = app.get('env') !== 'production';
+
+//app.use(bodyParser());
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 app.use('/', router);
 
