@@ -1,3 +1,39 @@
+.img-overlay {
+  z-index: -1;
+  background-color: rgba(255, 255, 255, 0.7);
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0; }
+
+.img-bgnd {
+  z-index: -100;
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0; }
+
+svg {
+  width: 100%;
+  height: auto; }
+
+#slacker-outer-frame {
+  fill: #277ce6; }
+
+#slacker-main {
+  fill: white; }
+
 .search-bar {
   display: block;
   width: 70%;
@@ -69,23 +105,43 @@ div.item-info-container {
   align-items: center;
   justify-content: center; }
   .quantity-holder div {
-    background: rgba(255, 255, 255, 0.3);
-    border: solid #ffc4d5 1px;
+    /*    background: rgba(22, 139, 255, 0.8);
+    border: solid $main-text-color 1px;
     border-radius: 50px;
     width: 40px;
     height: 40px;
     text-align: center;
-    margin-left: 20px;
-    margin-right: 20px;
-    font-size: 15px; }
+
+    font-size: 15px;*/
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-left: 15px;
+    margin-right: 15px;
+    outline: none;
+    border: solid #888888 2px;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 15px 20px;
+    transition: all 800ms ease; }
   .quantity-holder button {
-    cursor: pointer;
-    border: solid #ffc4d5 0.5px;
+    /*    cursor: pointer;
+    border: solid $main-text-color 0.5px;
     border-radius: 50px;
     width: 45px;
     height: 45px;
     background: transparent;
-    font-size: 20px; }
+    font-size: 20px;*/
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.3);
+    outline: none;
+    border: solid #888888 2px;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 15px;
+    padding: 15px 20px;
+    transition: all 300ms ease; }
+  .quantity-holder button:hover {
+    border-color: #ffc4d5;
+    color: #ffc4d5; }
   .quantity-holder button:focus {
     outline: 0; }
 
@@ -118,7 +174,7 @@ div.item-info-container {
   -ms-flex: 1;
   /* IE 10 */
   flex: 1;
-  background: #73ff19;
+  background: white;
   font-size: 40px;
   font-weight: bold; }
 
