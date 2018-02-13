@@ -1,5 +1,5 @@
 //server/routes/routes.js
-//code inspired by https://blog.cloudboost.io/creating-your-first-mern-stack-application-b6604d12e4d3
+//code inspired by:
 //https://hackernoon.com/how-to-combine-a-nodejs-back-end-with-a-reactjs-front-end-app-ea9b24715032
 //https://blog.cloudboost.io/creating-your-first-mern-stack-application-b6604d12e4d3
 
@@ -12,15 +12,11 @@ const mongoose = require('mongoose');
 
 //const url = 'mongodb://heroku_6dn4h73b:co8pe58sjmurt19g8t7ddd7vef@ds111618.mlab.com:11618/heroku_6dn4h73b';
 const url = 'mongodb://armanv:OVtDy6R9ZgnYI3qZ5IUZB@ds117158.mlab.com:17158/scrubit';
-
-
 //=========================//
 
 
 router.get('/api', function(req, res){
-    // res.send("hejsannnn");
-
-
+     res.send("hejsannnn");
 });
 
 router.get('/api/get-all', function(req, res) {
@@ -112,7 +108,6 @@ router.post('/api/update-price', function (req, res) {
     });
 });
 
-
 router.post('/api/delete', function(req, res){
     Item.find({
         description: req.body.Name
@@ -121,5 +116,15 @@ router.post('/api/delete', function(req, res){
     });
 });
 
+router.post('/api/delete-by-id', function(req, res){
+    Item.remove({ _id: req.body.id }, function(err) {
+        if (!err) {
+            console.log('Item removed');
+        }
+        else {
+            console.log('Error removing');
+        }
+    });
+});
 
 module.exports = router;
