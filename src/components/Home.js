@@ -22,7 +22,6 @@ export class Home extends Component {
                 , {id: 5, name: "Nocco", price: 33}, {id: 6, name: "Powerking", price: 1337}, {id: 7, name: "Delicatobollar", price: 10}, {id: 8, name: "Kebab", price: 70}, {id: 9, name: "Baklava", price: 50}, {id: 10, name: "Fanta", price: 7}
                 , {id: 11, name: "Sprite", price: 7}, {id: 12, name: "Surisar", price: 2}, {id: 13, name: "Remmar", price: 1}, {id: 14, name: "Pärlboll", price: 10}, {id: 15, name: "IT-tröja", price: 100}, {id: 16, name: "IT-kopp", price: 100}, {id: 17, name: "Te", price: 100}],
             itemQuant: [],
-            items: []
         }
 
     }
@@ -30,14 +29,25 @@ export class Home extends Component {
 
     componentWillMount()
     {
+        const items = []
 
         axios.get('/api/get-all')
             .then(function (response) {
-                console.log(response);
+                //console.log(response.data);
+                response.data.map((val ,index) => {
+
+                    val.indexId = index
+                    items.push(val)
+
+                })
             })
             .catch(function (error) {
                 console.log(error);
             });
+
+        console.log("----------")
+        console.log(items)
+        console.log("----------")
 
 
     }
@@ -450,11 +460,8 @@ export class Home extends Component {
 15 4 15 10 0 5 12 16 28 24 28 15 70 12 109 -6z"/>
                         </g>
                     </svg>
+
                 </div>
-
-
-
-
                 <input className="search-bar" type="text"
                        value={this.state.searchField}
                        onChange={this.updateField.bind(this)}
@@ -467,7 +474,7 @@ export class Home extends Component {
                             return <div className="items-flex">
 
                                     <div className="items-flex-item item-info-container">
-                                        <img src="https://nattalys.se/wp-content/uploads/2015/03/Pepsi_Max_330ml.png" alt=""/>
+                                        <img src={'https://nattalys.se/wp-content/uploads/2015/03/Pepsi_Max_330ml.png'} alt=""/>
                                         <li className="item-info">{elem.name + ": " + elem.price + "kr"}</li>
                                     </div>
                                     <div className="items-flex-item quantity-holder">
@@ -482,6 +489,19 @@ export class Home extends Component {
                 </ul>
                 <StatusBar totalSum={this.state.totalSum}/>
             </div>
+
         );
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
