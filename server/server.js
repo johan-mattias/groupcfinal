@@ -9,6 +9,7 @@ const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 
+
 var mongoose = require ("mongoose");
 
 var router = require('./routes/routes.js');
@@ -25,12 +26,18 @@ const app = express();
 const dev = app.get('env') !== 'production';
 
 //app.use(bodyParser());
-
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 
 app.use('/', router);
+
+app.use(function(req, res, next) {
+    req.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 
 mongoose.connect(uristring, function (err, res) {
     if (err) {

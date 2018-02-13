@@ -4,8 +4,9 @@
  *  Inspired by LevelUpTuts: https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg
  *
  */
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { StatusBar } from './StatusBar'
+import axios from 'axios'
 import slackerTransparent from "../images/stTr.png"
 
 
@@ -20,8 +21,24 @@ export class Home extends Component {
             dummyList: [{id: 0, name: "Coca-cola", price: 7}, {id: 1, name: "Haribo", price: 11}, {id: 2, name: "Pepsi", price: 7}, {id: 3, name: "Hockey Pulver", price: 999}, {id: 4, name: "Kaffe",  price: 0}
                 , {id: 5, name: "Nocco", price: 33}, {id: 6, name: "Powerking", price: 1337}, {id: 7, name: "Delicatobollar", price: 10}, {id: 8, name: "Kebab", price: 70}, {id: 9, name: "Baklava", price: 50}, {id: 10, name: "Fanta", price: 7}
                 , {id: 11, name: "Sprite", price: 7}, {id: 12, name: "Surisar", price: 2}, {id: 13, name: "Remmar", price: 1}, {id: 14, name: "Pärlboll", price: 10}, {id: 15, name: "IT-tröja", price: 100}, {id: 16, name: "IT-kopp", price: 100}, {id: 17, name: "Te", price: 100}],
-            itemQuant: []
+            itemQuant: [],
+            items: []
         }
+
+    }
+
+
+    componentWillMount()
+    {
+
+        axios.get('/api/get-all')
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
 
     }
 
