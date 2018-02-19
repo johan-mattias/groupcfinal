@@ -1,3 +1,10 @@
+html, body {
+  height: 100%; }
+
+* {
+  margin: 0;
+  font-family: "Lucida Grande"; }
+
 .img-overlay {
   z-index: -1;
   background-color: rgba(255, 255, 255, 0);
@@ -30,10 +37,21 @@ svg {
   height: auto; }
 
 #slacker-outer-frame {
-  fill: #277ce6; }
+  fill: #2745e6; }
 
 #slacker-main {
-  fill: white; }
+  fill: #e2e2e2; }
+
+.top-container {
+  background-color: #fefefe;
+  padding: 10px;
+  margin: auto; }
+
+#main-logo {
+  display: block;
+  margin: 10px auto 35px auto;
+  width: 40%;
+  height: 40%; }
 
 .search-bar {
   display: block;
@@ -41,13 +59,17 @@ svg {
   text-align: center;
   margin: auto;
   margin-top: 15px;
+  margin-bottom: 15px;
   border-radius: 40px;
   border: solid 0.55px lightblue;
   height: 35px;
-  font-size: 15px; }
+  font-size: 15px;
+  font-style: italic;
+  transition: all 300ms ease; }
 
 .search-bar:focus {
-  outline: 0; }
+  outline: 0;
+  box-shadow: 0 0 15px #0E4485; }
 
 input:focus::-webkit-input-placeholder {
   color: transparent; }
@@ -82,21 +104,30 @@ input:focus:-ms-input-placeholder {
 
 li.item-info {
   list-style: none;
-  font-size: 25px; }
+  font-size: 25px;
+  white-space: nowrap; }
 
 .items-flex {
-  padding-top: 30px;
   display: -webkit-flex;
   display: flex;
-  flex-wrap: nowrap;
-  align-items: center; }
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 2px;
+  margin: 30px auto;
+  width: 30%;
+  flex-direction: column; }
+
+.items-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
 
 .items-flex-item {
   -webkit-flex: 1;
   /* Safari 6.1+ */
   -ms-flex: 1;
   /* IE 10 */
-  flex: 1; }
+  flex: 1;
+  margin: 10px; }
 
 div.item-info-container {
   text-align: center; }
@@ -140,15 +171,15 @@ div.item-info-container {
   bottom: 0;
   right: 0;
   left: 0;
-  height: 80px; }
+  height: 60px; }
 
 .sum-status {
-  background: white;
-  color: #277ce6;
+  background: #f7f7f7;
+  color: #135cb2;
   flex: 1;
   text-align: center;
   vertical-align: middle;
-  line-height: 80px;
+  line-height: 60px;
   font-size: 40px; }
 
 .sum-status::-webkit-outer-spin-button, .sum-status::-webkit-inner-spin-button {
@@ -161,12 +192,13 @@ div.item-info-container {
   -ms-flex: 1;
   /* IE 10 */
   flex: 1;
-  background: white;
+  background: #135cb2;
   font-size: 40px;
-  font-weight: bold; }
+  color: #f7f7f7;
+  outline: 0; }
 
 html {
-  background: #277ce6;
+  background: #0E4485;
   height: 100%; }
 
 body {
