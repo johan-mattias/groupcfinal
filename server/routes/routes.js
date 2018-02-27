@@ -94,18 +94,25 @@ router.post('/api/insert', function(req, res) {
 
 });
 
-router.post('/api/update-price', function (req, res) {
-    Item.find({
-        description: req.body.Name
-    }, function (err, res) {
-        res.id = req.body.Id;
-        res.qr = req.body.Qr;
-        res.name = req.body.Name;
-        res.description = req.body.Description;
-        res.price = req.body.Price;
-        res.quantity = req.body.Quantity;
-        res.url = req.body.Url;
-    });
+router.post('/api/update', function (req, res) {
+    const id = req.body._id
+    Item.findById(id, function(err, res) {
+        if (err) {
+            console.error('error, no entry')
+        }
+        res.qr = req.body.qr;
+        res.name = req.body.name;
+        res.description = req.body.description;
+        res.price = req.body.price;
+        res.quantity = req.body.quantity;
+        res.url = req.body.url;
+    })
+        .then(result => {
+        console.log(result);
+        res.status(201).json({
+            message: 'update successfully.'
+        });
+    })
 });
 
 router.post('/api/delete', function(req, res){
