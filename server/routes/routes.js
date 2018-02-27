@@ -109,8 +109,28 @@ router.post('/api/update-price', function (req, res) {
 });
 
 router.post('/api/delete', function(req, res){
-    let id = req.body.id;
-    Item.findByIdAndRemove(id).exec();
+    const id = req.body._id;
+    console.log("ffffffff")
+    console.log(req.body._id)
+    console.log("ffffffff")
+    Item.findByIdAndRemove(id)
+        .then(result => {
+            console.log(result);
+            res.status(201).json({
+                message: 'deleted successfully.'
+            });
+        })
+/*
+
+    Item.findByIdAndRemove(id, function(err, doc) { // doc here is actually err
+        // handle err1
+        console.log('findByIdAndRemove doc: ', doc1);
+        Example.find({}, function(err2, docs) {
+            console.log('Finding all: ', docs)
+        })
+    })*/
+
+
     /*Item.find({
         description: req.body.Name
     }, function(err, docs){
