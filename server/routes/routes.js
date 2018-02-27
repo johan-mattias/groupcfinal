@@ -109,11 +109,13 @@ router.post('/api/update-price', function (req, res) {
 });
 
 router.post('/api/delete', function(req, res){
-    Item.find({
+    var id = req.body.id;
+    Item.findByIdAndRemove(id).exec;
+    /*Item.find({
         description: req.body.Name
     }, function(err, docs){
         docs.remove();
-    });
+    });*/
 });
 
 router.post('/api/delete-by-id', function(req, res){
