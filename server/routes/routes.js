@@ -20,22 +20,12 @@ router.get('/api', function(req, res){
 });
 
 router.get('/api/get-all', function(req, res) {
-/*    Item.find({}).then(eachOne => {
-        res.json(eachOne);
-    })*/
-
 
     Item.find()
         .exec()
         .then(docs => {
             console.log(docs);
-            //   if (docs.length >= 0) {
             res.status(200).json(docs);
-            //   } else {
-            //       res.status(404).json({
-            //           message: 'No entries found'
-            //       });
-            //   }
         })
         .catch(err => {
             console.log(err);
@@ -47,27 +37,6 @@ router.get('/api/get-all', function(req, res) {
 
 // Description and Price will be inputs used by app
 router.post('/api/insert', function(req, res) {
-/*    Item.create({
-        id: req.body.id,
-        qr: req.body.qr,
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        quantity: req.body.quantity,
-        url: req.body.url
-    }).then(item => {
-        res.json(item)
-    });*/
-    console.log("################");
-    console.log(req.body.qr);
-    console.log(req.body.name);
-    console.log(req.body.description);
-    console.log(req.body.price);
-    console.log(req.body.quantity);
-    console.log(req.body.url);
-
-    console.log("################");
-
     const item = new Item({
         _id: new mongoose.Types.ObjectId(),
         qr: req.body.qr,
@@ -95,17 +64,20 @@ router.post('/api/insert', function(req, res) {
 });
 
 router.post('/api/update', function (req, res) {
+
     const id = req.body._id
-    Item.findById(id, function(err, res) {
+
+    Item.findById(id, function(err, doc) {
         if (err) {
             console.error('error, no entry')
         }
-        res.qr = req.body.qr;
-        res.name = req.body.name;
-        res.description = req.body.description;
-        res.price = req.body.price;
-        res.quantity = req.body.quantity;
-        res.url = req.body.url;
+        doc.qr = req.body.qr;
+        doc.name = req.body.name;
+        doc.description = req.body.description;
+        doc.price = req.body.price;
+        doc.quantity = req.body.quantity;
+        doc.url = req.body.url;
+        doc.save();
     })
         .then(result => {
         console.log(result);
@@ -125,22 +97,6 @@ router.post('/api/delete', function(req, res){
                 message: 'deleted successfully.'
             });
         })
-/*
-
-    Item.findByIdAndRemove(id, function(err, doc) { // doc here is actually err
-        // handle err1
-        console.log('findByIdAndRemove doc: ', doc1);
-        Example.find({}, function(err2, docs) {
-            console.log('Finding all: ', docs)
-        })
-    })*/
-
-
-    /*Item.find({
-        description: req.body.Name
-    }, function(err, docs){
-        docs.remove();
-    });*/
 });
 
 router.post('/api/delete-by-id', function(req, res){
