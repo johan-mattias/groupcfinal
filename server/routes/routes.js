@@ -110,9 +110,7 @@ router.post('/api/update-price', function (req, res) {
 
 router.post('/api/delete', function(req, res){
     const id = req.body._id;
-    console.log("ffffffff")
-    console.log(req.body._id)
-    console.log("ffffffff")
+
     Item.findByIdAndRemove(id)
         .then(result => {
             console.log(result);
