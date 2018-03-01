@@ -13,7 +13,7 @@ export class StatusBar extends Component {
             <div className="status-flex">
                 <div className="sum-status">
                     <div className="tot-title">
-                        Total
+                        {this.props.totalSum}
                     </div>
                     /*TODO: flytta funktionalitet from sum-status to tot-amount*/
                     <div className="tot-amount">
