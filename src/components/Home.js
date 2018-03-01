@@ -30,7 +30,7 @@ export class Home extends Component {
 
     componentDidMount()
     {
-        axios.get('/api/get-all')
+        axios.get('http://scrubit.herokuapp.com/api/get-all')
         .then((response) => {
 
 
@@ -116,14 +116,14 @@ export class Home extends Component {
                 </div>
 
 
-                <ul className="items-list">
+                <div className="items-list">
 
                     {
                         itemsFiltered.map((elem) => {
                             return <div className="items-flex">
 
                                     <div className="items-flex-item item-info-container">
-                                        {/*src=elem.url*/}
+                                        {/*src='https://dummyimage.com/100x100/000/fff.png'*/}
                                         <img src={elem.url} alt=""/>
                                         <li className="item-info">{elem.name + ": " + elem.price + "kr"}</li>
                                     </div>
@@ -136,7 +136,7 @@ export class Home extends Component {
                                 </div>
                         })
                     }
-                </ul>
+                </div>
                 <StatusBar totalSum={this.state.totalSum}/>
             </div>
 

@@ -127,6 +127,13 @@ li.item-info {
   white-space: nowrap;
 }
 
+.items-list{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
 .items-flex {
   display: -webkit-flex;
   display: flex;
@@ -134,12 +141,6 @@ li.item-info {
   border-radius: 2px;
   margin: 30px auto;
   width: 30%;
-  flex-direction: column;
-}
-
-.items-list{
-  display: flex;
-  align-items: center;
   flex-direction: column;
 }
 

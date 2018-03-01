@@ -8,6 +8,7 @@ const compression = require('compression');
 const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
+var cors = require('cors');
 
 
 var mongoose = require ("mongoose");
@@ -37,6 +38,8 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+app.use(cors());
 
 
 mongoose.connect(uristring, function (err, res) {
