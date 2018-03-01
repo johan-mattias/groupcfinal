@@ -107,7 +107,7 @@ export class Home extends Component {
         return(
             <div>
                 <div className="top-container">
-                    <img id="main-logo" src={scrubitLogo} alt=""/>
+                    {/*<img id="main-logo" src={scrubitLogo} alt=""/>*/}
                     <input className="search-bar" type="text"
                            value={this.state.searchField}
                            onChange={this.updateField.bind(this)}
