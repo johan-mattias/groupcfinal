@@ -87,7 +87,7 @@ router.post('/api/update', function (req, res) {
     })
 });
 
-router.post('/api/delete', function(req, res){
+router.post('/api/delete', isAuthenticated, function(req, res){
     const id = req.body._id;
 
     Item.findByIdAndRemove(id)
@@ -109,5 +109,18 @@ router.post('/api/delete-by-id', function(req, res){
         }
     });
 });
+
+function isAuthenticated(req, res, next) {
+    // Get auth header value
+    const password = req.headers['authorization'];
+    // Check if password is correct
+    if(password == "scrubenbjuderinte") {
+        return next();
+    } else {
+        // Forbidden
+        res.sendStatus(403);
+    }
+
+}
 
 module.exports = router;
