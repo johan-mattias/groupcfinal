@@ -114,7 +114,7 @@ function isAuthenticated(req, res, next) {
     // Get auth header value
     const password = req.headers['authorization'];
     // Check if password is correct
-    if(password == "scrubenbjuderinte") {
+    if(password == "scrubbenbjuderinte") {
         return next();
     } else {
         // Forbidden
