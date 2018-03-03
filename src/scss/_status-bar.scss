@@ -38,3 +38,14 @@
   line-height: 60px;
 }
 
+// hidden-bar is sent as props to StatusBar.js
+.hidden-bar {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 200ms ease-in-out;
+}
+
+.shown-bar {
+  opacity: 1;
+  transition: all 200ms ease-in-out;
+}
