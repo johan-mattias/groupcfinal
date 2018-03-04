@@ -2,12 +2,6 @@ html, body {
   height: 100%;
 }
 
-* {
-  margin: 0;
-  font-family: "atlason",Helvetica,"Neue Helvetica",Arial,sans-serif;
-  font-weight: 100;
-}
-
 
 
 // image overlay
@@ -66,7 +60,7 @@ svg {
 .top-container {
   display: flex;
   align-items: center;
-  //justify-content: center;
+  justify-content: center;
   background-color: $scnd-theme-color;
   padding: 10px;
   margin: auto;
@@ -80,7 +74,7 @@ svg {
   width: 100px;
   height: 32px;
   //flex: 1;
-  transition: all 300ms ease-in-out 100ms;
+  transition: all 300ms ease-in-out;
   opacity: 1;
   //transform: scale(0.5);
 }
@@ -140,9 +134,9 @@ input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
 // items
 li.item-info {
   list-style: none;
-  font-size: 20px;
+  font-size: 25px;
   margin-top: 10px;
-  color: $main-text-color;
+  color: $slacker-color;
   //white-space: nowrap;
 }
 
@@ -150,8 +144,10 @@ li.item-info {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
+  font-size: 40px;
+  border-bottom: solid $slacker-color 2px;
   color: $slacker-color;
+  font-weight: bold;
 }
 
 .items-list{
@@ -168,7 +164,7 @@ li.item-info {
   display: -webkit-flex;
   display: flex;
   background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 2px;
+  border-radius: 3px;
   margin: 30px;
   padding: 15px;
   width: 200px;
@@ -195,46 +191,35 @@ div.item-info-container {
   justify-content: center;
 
   div {
-    background-color: rgba(255, 255, 255, 0.3);
-    margin-left: 15px;
-    margin-right: 15px;
+    color: $slacker-color;
+    margin-left: 20px;
+    margin-right: 20px;
     outline: none;
-    border: solid #888888 2px;
-    //box-shadow: 0px 10px 10px 1px darkgray;
-
-    //-moz-border-radius: 10px;
-    //-webkit-border-radius: 10px;
-    border-radius: 50%;
-    font-size: 20px;
-    padding: 15px 20px;
+    font-size: 35px;
+    font-weight: bold;
     transition: all 800ms ease;
   }
 
   button {
-    text-transform: uppercase;
-    background-color: rgba(255, 255, 255, 0.3);
-    outline: none;
-    border: solid #888888 2px;
+    background: $pay-button-bgnd-color;
     cursor: pointer;
-    //box-shadow: 0px 10px 10px 1px darkgray;
-
-    //-moz-border-radius: 10px;
-    //-webkit-border-radius: 10px;
-    border-radius: 2px;
-    font-size: 15px;
-    padding: 15px 20px;
-    transition: all 300ms ease;
-  }
-
-  button:hover {
-    border-color: $main-text-color;
-    color: $main-text-color;
+    -webkit-border-radius: 37;
+    -moz-border-radius: 37;
+    border-radius: 37px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 27px;
+    padding: 9px 15px 9px 15px;
+    text-decoration: none;
   }
 
   button:focus {
     outline: 0;
   }
 
+  .minus-btn {
+    padding-left: 17px;
+  }
 }
 
 

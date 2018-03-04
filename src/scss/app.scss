@@ -5,7 +5,6 @@
 @import "status-bar";
 
 
-//TODO: temporary for bgnd. delete if to have pic-bgnd instead
 html {
   background: $background-color;
   height: 100%;
@@ -13,4 +12,16 @@ html {
 
 body {
   margin: 0;
+}
+
+@font-face {
+  font-family: 'Bebas Neue Book';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Bebas Neue Book'), url('../fonts/bebas-neue-book/BebasNeue Book.woff') format('woff');
+}
+
+* {
+  font-family: "Bebas Neue Book";
+  letter-spacing: 2px;
 }

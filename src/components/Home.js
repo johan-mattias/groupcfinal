@@ -149,7 +149,7 @@ export class Home extends Component {
                                     </div>
                                     <div className="items-flex-item item-price">{elem.price + ' kr'}</div>
                                     <div className="items-flex-item quantity-holder">
-                                        <button onClick={(event) => { this.onMinus(event, elem)}}>-</button>
+                                        <button className="minus-btn" onClick={(event) => { this.onMinus(event, elem)}}>–</button>
                                         <div>{this.state.itemQuant[elem.indexId]}</div>
                                         <button onClick={(event) => { this.onPlus(event, elem)}}>+</button>
                                     </div>
