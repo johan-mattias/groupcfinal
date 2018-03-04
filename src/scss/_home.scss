@@ -54,15 +54,15 @@ svg {
   height: auto;
 }
 
-#slacker-outer-frame {
-  fill: #2745e6;
-}
-
-#slacker-main {
-  fill: #e2e2e2;
-}
 
 // top container
+.fixed-nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
 .top-container {
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@ svg {
   padding: 10px;
   margin: auto;
   border-bottom: solid $background-color 1px;
-  box-shadow: 0 20px 10000px 140px #FAFAFA;
+  box-shadow: 0 10px 10000px 100px #FAFAFA;
   flex-direction: row-reverse;
 }
 
@@ -95,9 +95,10 @@ svg {
   margin-right: 10px;
   border: solid 2px $pay-button-bgnd-color;
   height: 35px;
-  font-size: 11px;
+  padding: 5px;
+  font-size: 16px;
   font-style: italic;
-  transition: all 500ms ease-in-out;
+  transition: all 300ms ease;
 }
 
 .search-bar:focus {
@@ -158,6 +159,7 @@ li.item-info {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 100px;
   margin-bottom: 100px;
 }
 

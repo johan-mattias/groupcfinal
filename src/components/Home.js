@@ -7,7 +7,7 @@
 import React, { Component } from 'react'
 import { StatusBar } from './StatusBar'
 import axios from 'axios'
-import scrubitLogo from '../images/ScrubIT-Logo-Black.png'
+import scrubitLogo from '../images/logo-thin.png'
 
 
 export class Home extends Component {
@@ -31,6 +31,7 @@ export class Home extends Component {
 
     componentDidMount()
     {
+        // http://scrubit.herokuapp.com/api/get-all
         axios.get('/api/get-all')
         .then((response) => {
 
@@ -123,13 +124,15 @@ export class Home extends Component {
         return(
 
             <div>
-                <div className="top-container">
-                    <input className="search-bar" type="text"
-                           value={this.state.searchField}
-                           onChange={this.updateField.bind(this)}
-                           placeholder={"e.g. Coca-cola, Haribo, Binary search tree..."}
-                    />
-                    <img id="main-logo" src={scrubitLogo} alt=""/>
+                <div className="fixed-nav">
+                    <div className="top-container">
+                        <input className="search-bar" type="text"
+                               value={this.state.searchField}
+                               onChange={this.updateField.bind(this)}
+                               placeholder={"e.g. Haribo, Binary search tree..."}
+                        />
+                        <img id="main-logo" src={scrubitLogo} alt=""/>
+                    </div>
                 </div>
 
 
