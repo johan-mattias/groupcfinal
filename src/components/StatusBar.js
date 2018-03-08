@@ -2,6 +2,7 @@
  * Created by danielghandahari on 2018-01-26.
  */
 import React, { Component } from 'react'
+import payImg from '../images/Swish_Logo_Primary_RGB.png'
 
 export class StatusBar extends Component {
     constructor(props) {
@@ -21,16 +22,22 @@ export class StatusBar extends Component {
         return(
             <div className={"status-flex " + hiddenClass}>
                 <div className="sum-status">
-                    <div className="tot-title">
-                        {this.props.totalSum}
-                    </div>
                     {/*TODO: flytta funktionalitet from sum-status to tot-amount*/}
+                    <div className="tot-total">Total</div>
+
                     <div className="tot-amount">
-                        <div className="tot-amount">{this.props.totalSum}</div>
+                        <div className="tot-sum">{this.props.totalSum}</div>
                         <div className="tot-sek">kr</div>
                     </div>
+
+
                 </div>
-                <a href={canSwish} className="pay-btn">Pay</a>
+                <a href={canSwish} className="reset-btn">Reset</a>
+                <a href={canSwish} className="pay-btn-container">
+                    <div className="pay-title">Pay with</div>
+                    <img className="pay-img" src={payImg} alt=""/>
+                </a>
+
             </div>
         )
     }
