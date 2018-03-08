@@ -65,8 +65,9 @@ svg {
   padding: 10px;
   margin: auto;
   border-bottom: solid $background-color 1px;
-  box-shadow: 0 10px 10000px 100px #FAFAFA;
+  //box-shadow: 0 10px 100000px 100px #FAFAFA;
   flex-direction: row-reverse;
+  border-bottom: solid 2px lightgrey;
 }
 
 #main-logo {
@@ -119,111 +120,221 @@ input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
 
 // search-bar placeholder styling
 .search-bar::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #949494;
+  color: $slacker-color;
 }
 .search-bar::-moz-placeholder { /* Firefox 19+ */
-  color: #949494;
+  color: $slacker-color;
 }
 .search-bar:-ms-input-placeholder { /* IE 10+ */
-  color: #949494;
+  color: $slacker-color;
 }
 .search-bar:-moz-placeholder { /* Firefox 18- */
-  color: #949494;
-}
-
-// items
-li.item-info {
-  list-style: none;
-  font-size: 25px;
-  margin-top: 10px;
   color: $slacker-color;
-  //white-space: nowrap;
 }
 
-.item-price {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  border-bottom: solid $slacker-color 2px;
-  color: $slacker-color;
-  font-weight: bold;
-}
+/* ------ items -------- */
 
-.items-list{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
+/* ------------------------- */
 
+@media screen and (max-width: 768px) {
 
-.items-flex {
-  display: -webkit-flex;
-  display: flex;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 3px;
-  margin: 30px;
-  padding: 15px;
-  width: 200px;
-  height: 280px;
-  flex-direction: column;
-  border: solid $slacker-color 2px;
-}
+  // ------- items on small screen ----------
 
-.items-flex-item {
-  -webkit-flex: 1; /* Safari 6.1+ */
-  -ms-flex: 1; /* IE 10 */
-  flex: 1;
-  margin: 10px;
-}
-
-div.item-info-container {
-  text-align: center;
-}
-
-.quantity-holder {
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  div {
+  li.item-info {
+    list-style: none;
     color: $slacker-color;
-    margin-left: 20px;
-    margin-right: 20px;
-    outline: none;
-    font-size: 35px;
+    //white-space: nowrap;
+  }
+
+  .item-price {
+    color: $slacker-color;
     font-weight: bold;
-    transition: all 800ms ease;
+    text-align: center;
+    font-size: 40px;
   }
 
-  button {
-    background: $pay-button-bgnd-color;
-    cursor: pointer;
-    -webkit-border-radius: 37;
-    -moz-border-radius: 37;
-    border-radius: 37px;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 27px;
-    padding: 9px 15px 9px 15px;
-    text-decoration: none;
+  .items-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    margin-bottom: 100px;
   }
 
-  button:focus {
-    outline: 0;
+
+  .items-flex {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 3px;
+    margin: 5px;
+    padding: 15px;
+    flex-direction: row;
+    width: 90%;
+    border: solid $slacker-color 2px;
   }
 
-  .minus-btn {
-    padding-left: 17px;
+  .items-flex-item {
+    -webkit-flex: 1; /* Safari 6.1+ */
+    -ms-flex: 1; /* IE 10 */
+    flex: 1;
   }
+
+  .item-info-container {
+    text-align: center;
+  }
+
+  .item-info-container img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .quantity-holder {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div {
+      color: $slacker-color;
+      margin-left: 20px;
+      margin-right: 20px;
+      outline: none;
+      font-size: 35px;
+      font-weight: bold;
+      transition: all 800ms ease;
+    }
+
+    button {
+      background: $pay-button-bgnd-color;
+      cursor: pointer;
+      -webkit-border-radius: 37px;
+      -moz-border-radius: 37px;
+      border-radius: 37px;
+      border: none;
+      font-family: Arial;
+      color: #ffffff;
+      font-size: 27px;
+      padding: 9px 15px 9px 15px;
+      text-decoration: none;
+    }
+
+    button:focus {
+      outline: 0;
+    }
+
+    .minus-btn {
+      padding-left: 17px;
+    }
+
+    .plus-btn {
+      padding-left: 16px;
+      padding-top: 10px;
+    }
+  }
+  // ----------------------------------------
+
 }
-
 
 @media screen and (min-width: 768px) {
+
+  // ------- items on small screen ----------
+
+  li.item-info {
+    list-style: none;
+    font-size: 25px;
+    margin-top: 10px;
+    color: $slacker-color;
+    //white-space: nowrap;
+  }
+
+  .item-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    border-bottom: solid $slacker-color 2px;
+    color: $slacker-color;
+    font-weight: bold;
+  }
+
+  .items-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+
+  .items-flex {
+    display: -webkit-flex;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 3px;
+    margin: 30px;
+    padding: 15px;
+    width: 200px;
+    height: 280px;
+    flex-direction: column;
+    border: solid $slacker-color 2px;
+  }
+
+  .items-flex-item {
+    -webkit-flex: 1; /* Safari 6.1+ */
+    -ms-flex: 1; /* IE 10 */
+    flex: 1;
+    margin: 10px;
+  }
+
+  div.item-info-container {
+    text-align: center;
+  }
+
+  .quantity-holder {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div {
+      color: $slacker-color;
+      margin-left: 20px;
+      margin-right: 20px;
+      outline: none;
+      font-size: 35px;
+      font-weight: bold;
+      transition: all 800ms ease;
+    }
+
+    button {
+      background: $pay-button-bgnd-color;
+      cursor: pointer;
+      -webkit-border-radius: 37;
+      -moz-border-radius: 37;
+      border-radius: 37px;
+      font-family: Arial;
+      color: #ffffff;
+      font-size: 27px;
+      padding: 9px 15px 9px 15px;
+      text-decoration: none;
+    }
+
+    button:focus {
+      outline: 0;
+    }
+
+    .minus-btn {
+      padding-left: 17px;
+    }
+  }
+  // ----------------------------------------
+
+  // search bar on small screen
   .search-bar {
     margin-right: 30px;
     width: 70%;
