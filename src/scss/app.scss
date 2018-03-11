@@ -4,6 +4,18 @@
 @import "home";
 @import "status-bar";
 
+// react-loader styling
+$my-brand-color: $slacker-color;
+$primary-color: $my-brand-color;
+@import '../../node_modules/loaders.css/src/animations/ball-scale-ripple-multiple.scss';
+
+.loader-hidden {
+  display: none;
+}
+.loader-active {
+  display: block;
+}
+// ---------------------
 
 html {
   background: $background-color;
