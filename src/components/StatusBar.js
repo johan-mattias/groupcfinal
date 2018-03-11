@@ -20,8 +20,7 @@ export class StatusBar extends Component {
             hidden: props.totalSum === 0 ? 'hidden' : 'NO',
             // state.show is for showing sweetalert
             show: false,
-            showLoader: false,
-            iframeMarkup: ''
+            showLoader: false
         }
     }
 
@@ -31,7 +30,7 @@ export class StatusBar extends Component {
 
         let totalToStr = this.props.totalSum.toString()
         // safety check to never swish if amount is not greater that 0
-        let canSwish = this.props.totalSum > 0 ? 'swish://payment?data=%7B%22version%22%3A1%2C%22payee%22%3A%7B%22value%22%3A%20%22%2B46703382240%22%7D%2C%22amount%22%3A%7B%22value%22%3A' + totalToStr +'%7D%2C%22message%22%3A%7B%22value%22%3A%22skrubben.setIsGrateful%28true%29%22%7D%7D' : ''
+        let canSwish = this.props.totalSum > 0 ? 'swish://payment?data=%7B%22version%22%3A1%2C%22payee%22%3A%7B%22value%22%3A%20%221236130983%22%7D%2C%22amount%22%3A%7B%22value%22%3A' + totalToStr +'%7D%2C%22message%22%3A%7B%22value%22%3A%22skrubben.setIsGrateful%28true%29%22%7D%7D' : ''
         console.log(canSwish)
         setTimeout(() => {
             this.setState({
@@ -40,8 +39,7 @@ export class StatusBar extends Component {
             })
         }, 3000);
 
-        console.log(this.state.iframeMarkup)
-        //window.location = canSwish
+        window.location = canSwish
     }
 
     render() {
