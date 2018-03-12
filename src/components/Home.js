@@ -32,7 +32,7 @@ export class Home extends Component {
     componentDidMount()
     {
         // http://scrubit.herokuapp.com/api/get-all
-        axios.get('http://scrubit.herokuapp.com/api/get-all')
+        axios.get('/api/get-all')
         .then((response) => {
 
 
