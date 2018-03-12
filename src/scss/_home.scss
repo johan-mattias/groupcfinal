@@ -95,8 +95,8 @@ svg {
   //font-style: italic;
   transition: all 300ms ease;
   -webkit-transition: all 300ms ease;
-  -moz-transition: border 250ms ease-in-out;
-  -o-transition: border 250ms ease-in-out;
+  -moz-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
 }
 
 .search-bar:focus {
