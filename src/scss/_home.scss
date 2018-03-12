@@ -64,10 +64,9 @@ svg {
   background-color: $scnd-theme-color;
   padding: 10px;
   margin: auto;
-  border-bottom: solid $background-color 1px;
   //box-shadow: 0 10px 100000px 100px #FAFAFA;
   flex-direction: row-reverse;
-  border-bottom: solid 2px lightgrey;
+  border-bottom: solid 1px #cbcbcb;
 }
 
 #main-logo {

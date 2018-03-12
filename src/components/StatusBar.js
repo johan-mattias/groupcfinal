@@ -59,15 +59,15 @@ export class StatusBar extends Component {
 
 
                 </div>
-                <a onClick={this.renderLoader} className="reset-btn">Reset</a>
+                <a onClick={this.props.reset} className="reset-btn">Reset</a>
                 <a onClick={this.onSwish} className="pay-btn-container">
                     <div className="pay-title">Pay with</div>
                     <img className="pay-img" src={payImg} alt=""/>
                 </a>
                 <SweetAlert
                     show={this.state.show}
-                    title="Tough times..."
-                    text="Can't find Swish"
+                    title="device.hasSwish() -> False"
+                    text="For the non-programmer, cannot find Swish"
                     onConfirm={() => this.setState({ show: false })}
                 />
                 <div className="loader-wrapper">

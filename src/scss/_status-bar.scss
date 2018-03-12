@@ -64,6 +64,7 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  cursor: pointer;
   //line-height: 60px;
 
 
@@ -94,6 +95,7 @@
   //text-align: center;
   text-decoration: none;
   line-height: 60px;
+  cursor: pointer;
 }
 
 // hidden-bar is sent as props to StatusBar.js

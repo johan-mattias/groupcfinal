@@ -55,6 +55,13 @@ export class Home extends Component {
 
     }
 
+    resetPurchases = () => {
+        this.setState({
+            itemQuant: this.state.itemQuant.fill(0),
+            totalSum: 0
+        });
+    }
+
     updateField(e) {
         this.setState({
             searchField: e.target.value.substr(0, 20)
@@ -158,7 +165,7 @@ export class Home extends Component {
                         })
                     }
                 </div>
-                <StatusBar isHidden={this.state.barIsHidden} totalSum={this.state.totalSum}/>
+                <StatusBar isHidden={this.state.barIsHidden} totalSum={this.state.totalSum} reset={this.resetPurchases}/>
             </div>
 
         );
