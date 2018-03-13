@@ -82,7 +82,7 @@ router.post('/api/update', function (req, res) {
         .then(result => {
         console.log(result);
         res.status(201).json({
-            message: 'update successfully.'
+            message: 'updated successfully.'
         });
     })
 });
@@ -114,7 +114,7 @@ function isAuthenticated(req, res, next) {
     // Get auth header value
     const password = req.headers['authorization'];
     // Check if password is correct
-    if(password == "scrubbenbjuderinte") {
+    if(password == "hej123") {
         return next();
     } else {
         // Forbidden
