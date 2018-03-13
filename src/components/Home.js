@@ -88,7 +88,6 @@ export class Home extends Component {
             totalSum: newTotSum
         });
 
-        console.log(newTotSum)
         if(newTotSum === 0) {
             this.setState({
                 barIsHidden: true
