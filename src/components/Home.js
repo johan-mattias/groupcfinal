@@ -115,10 +115,6 @@ export class Home extends Component {
 
     render() {
 
-/*        if(this.state.items.length === 0 && this.state.itemQuant.length === 0)
-            return <div>Loading...</div>*/
-
-        // TODO CHANGE LIST HERE, USE DUMMY LIST DEV MODE
         let itemsFiltered = this.state.items.filter(
             (elem) => {
                 return elem.name.toLowerCase().indexOf(
